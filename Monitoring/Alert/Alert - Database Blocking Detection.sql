@@ -1,14 +1,3 @@
---  Update the following in the script:
---    Job owner name: AMSA\SvDevSQLAgentExec, AMSA\SvTstSQLAgentExec, AMSA\SvStaSQLAgentExec, AMSA\SvProdSQLAgentExec
---    Operator name: DBA
---    Recipient name: DBA@amsa.com
---    SQL Instance name:
---      "SQLServer"     (for SQL Server default instance)
---      "MSSQL$Axway"   (for SQL Server named instance)
---    !! adevdbs001 uses "DEVManagers" as mail profile name, and log free space = 204800 KB. Only this runs job.
---    All alerts sets response interval = 5 minutes so no event gets missed yet not flooding emails.
---    AQADBSCLSTR02\MCDB uses amsa\svsqlclusterqaagt as job owner
---  Manually remove existing job and alerts.
 
 
 USE [msdb]
@@ -51,7 +40,6 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'block de
 		@os_run_priority=0, @subsystem=N'TSQL', 
 		@command=N'/********************************************************************************************
 				--  Name:   Blockng detection script
-				--  Author: Nagasai B Repalle
 				--  Use:    Improve existing blocking detecting alert. It fires whenever blocking occurs but
 				--          most of the time it resolves by itself. We only need to report on blocking that 
 				--          lasts for more than 5  Min (adjustable).
@@ -328,9 +316,6 @@ begin
     @alert_name = @AlertName, @operator_name = N'DBA', @notification_method = 1  --  1 = email, 2 = pager, 4=net wend
 
 end
-
---  select *  FROM msdb.dbo.sysalerts 
---  select * from msdb.dbo.sysnotifications
 
 GO
 
