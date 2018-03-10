@@ -1,6 +1,4 @@
---  This script can be used to optimize Tempdb performance
---  Created by: Nagasai B Repalle
---  Created on: 6/15/2009
+
 
 
 /******  BEST PRACTICES  ******/
