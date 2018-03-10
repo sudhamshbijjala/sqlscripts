@@ -1,8 +1,4 @@
---  Script:   Monitor log usage for all databases
---  Author:   Richard Ding
---  Created:  9/9/2009  
---  Note:     Must use percentage for each database, not _total. 
---            threshold = 80%, interval = 60 min, email to DBA. 
+
 
 USE [msdb];
 GO
