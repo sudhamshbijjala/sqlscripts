@@ -1,6 +1,4 @@
---  Script:   List each object/index/filegroup/Data/Path/Partition/Boundary/Sizes
---  Author:   Richard Ding
---  Date:     03/02/2010
+
 
 SELECT
 	DB_NAME() AS 'DatabaseName'
