@@ -1,6 +1,4 @@
---  Script:   List each object/index/filegroup/Data/Path
---  Author:   Richard Ding
---  Date:     9/18/2009
+
 
   SELECT object_name(i.object_id) AS 'Object Name',
 	     i.object_id AS 'Object Id',
