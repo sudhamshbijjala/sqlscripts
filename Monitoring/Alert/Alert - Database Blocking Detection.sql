@@ -146,7 +146,7 @@ IF EXISTS (SELECT 0 FROM ##initalBlockingSnapshot i
             @q varchar(max);
   
          SELECT @p_name=''Notifications'', 
-           @r_name=''nagasai.repalle@pimco.com'',
+           @r_name=''test@gmail.com'',
           @sub=''[Warning]:''+''Blocking detected on ''+ @servername +'' at ''+cast(@time as nvarchar),
            @q = ''SELECT * FROM ##BlockingForEmail ORDER BY Session ASC'';
        
