@@ -1,0 +1,16 @@
+--  Restore SEL database from PROD (AOPSDBSCLSTR05\SEL) to the following environments:
+--    DEV (ADEVDBS010\SEL)
+
+
+DECLARE @BackupFile VARCHAR(255)
+SET @BackupFile = '\\adevdbs010\z$\Temp\SEL_201004190530.BAK'
+--'\\aopsdbsclstr03\AOPSDBSCLSTR03\ODS\SEL_200909300530.BAK'
+
+RESTORE FILELISTONLY FROM DISK = @BackupFile; 
+
+ALTER DATABASE SEL SET OFFLINE WITH ROLLBACK IMMEDIATE;
+
+RESTORE DATABASE SEL FROM DISK = @BackupFile WITH REPLACE, STATS = 1,
+MOVE 'SEL_Data' TO 'H:\SQL\DATA\SQL_Data.mdf',
+MOVE 'SEL_Data_01' TO 'H:\sql\data\SEL_Data_01.ndf',
+MOVE 'SEL_Log' TO 'H:\SQL\LOG\SQL_Log.ldf';
