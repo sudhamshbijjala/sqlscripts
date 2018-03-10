@@ -16,13 +16,6 @@ CREATE PROCEDURE dbo.sp_version
   WITH ENCRYPTION                      
 AS
 
--- ********************************************************************
--- Procedure Name:  sp_version
--- Purpose:         List key server information for SQL Server 2005, 2008
--- Returns          An -1 if it fails or 0 if it succeeds
--- Author:          Richard Ding
--- Date Created:    07/01/2008 
---********************************************************************
 
 set nocount on;
 
